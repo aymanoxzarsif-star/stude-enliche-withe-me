@@ -2,64 +2,185 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Learn English</title>
+  <title>Learn English Grammar</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background: #f4f6f8;
-      color: #333;
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1e40af;
+      --secondary: #ca8a04;
+      --light-bg: #f4f6f8;
+      --card-bg: #ffffff;
+      --footer-bg: #e5e7eb;
+      --example-bg: #eef2ff;
+      --exercise-bg: #fefce8;
     }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background: var(--light-bg);
+      color: #333;
+      line-height: 1.6;
+    }
+
     header {
-      background: #2563eb;
+      background: var(--primary);
       color: white;
-      padding: 20px;
+      padding: 1.5rem 1rem;
       text-align: center;
     }
-    nav {
-      background: #1e40af;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      padding: 10px;
+
+    header h1 {
+      margin: 0 0 0.5rem;
+      font-size: 1.8rem;
     }
+
+    header p {
+      margin: 0;
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
+    nav {
+      background: var(--primary-dark);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      padding: 0.75rem 1rem;
+    }
+
     nav a {
       color: white;
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 600;
+      padding: 0.4rem 0.8rem;
+      border-radius: 4px;
+      transition: background 0.2s;
     }
-    nav a:hover {
-      text-decoration: underline;
+
+    nav a:hover, nav a:focus {
+      background: rgba(255, 255, 255, 0.2);
+      text-decoration: none;
     }
-    section {
+
+    main {
       max-width: 900px;
-      margin: 30px auto;
-      background: white;
-      padding: 25px;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      margin: 2rem auto;
+      padding: 0 1rem;
     }
+
+    section {
+      background: var(--card-bg);
+      padding: 1.8rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      margin-bottom: 2rem;
+    }
+
     h2 {
-      color: #2563eb;
+      color: var(--primary);
+      margin-top: 0;
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 0.5rem;
+      font-size: 1.5rem;
     }
+
+    h3 {
+      color: #4a5568;
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .example, .exercise {
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 6px;
+      position: relative;
+    }
+
     .example {
-      background: #eef2ff;
-      padding: 15px;
-      border-left: 4px solid #2563eb;
-      margin: 15px 0;
+      background: var(--example-bg);
+      border-left: 4px solid var(--primary);
     }
+
     .exercise {
-      background: #fefce8;
-      padding: 15px;
-      border-left: 4px solid #ca8a04;
-      margin: 15px 0;
+      background: var(--exercise-bg);
+      border-left: 4px solid var(--secondary);
     }
+
+    ul {
+      padding-left: 1.2rem;
+    }
+
+    input[type="text"], select {
+      padding: 0.4rem;
+      margin: 0.2rem 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+      width: 120px;
+    }
+
+    button {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 0.6rem 1.2rem;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 1rem;
+      transition: background 0.2s;
+    }
+
+    button:hover {
+      background: var(--primary-dark);
+    }
+
+    #result {
+      margin-top: 1.2rem;
+      font-weight: bold;
+      font-size: 1.1rem;
+      padding: 0.5rem;
+      background: #dbeafe;
+      border-radius: 6px;
+      display: none;
+    }
+
     footer {
       text-align: center;
-      padding: 15px;
-      background: #e5e7eb;
-      margin-top: 40px;
+      padding: 1rem;
+      background: var(--footer-bg);
+      margin-top: 2rem;
+      font-size: 0.95rem;
+      color: #4a5568;
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        gap: 8px;
+        padding: 0.5rem;
+      }
+
+      nav a {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.95rem;
+      }
+
+      section {
+        padding: 1.2rem;
+      }
+
+      h2 {
+        font-size: 1.3rem;
+      }
     }
   </style>
 </head>
@@ -76,115 +197,135 @@
   <a href="#exercises">Exercises</a>
 </nav>
 
-<section id="future">
-  <h2>1. Future Simple (Will)</h2>
-  <p>The future simple is used to talk about actions that will happen in the future.</p>
+<main>
+  <section id="future">
+    <h2>1. Future Simple (Will)</h2>
+    <p>The future simple is used to talk about actions that will happen in the future.</p>
 
-  <h3>Form:</h3>
-  <div class="example">
-    <p><strong>Affirmative:</strong> Subject + will + verb</p>
-    <p>I <b>will study</b> English.</p>
+    <h3>Form:</h3>
+    <div class="example">
+      <p><strong>Affirmative:</strong> Subject + <em>will</em> + base verb</p>
+      <p>I <strong>will study</strong> English.</p>
 
-    <p><strong>Negative:</strong> Subject + will not (won't) + verb</p>
-    <p>I <b>won't study</b> today.</p>
+      <p><strong>Negative:</strong> Subject + <em>will not</em> (won't) + base verb</p>
+      <p>I <strong>won't study</strong> today.</p>
 
-    <p><strong>Question:</strong> Will + subject + verb?</p>
-    <p><b>Will</b> you study English?</p>
-  </div>
+      <p><strong>Questions:</strong> <em>Will</em> + subject + base verb?</p>
+      <p><strong>Will</strong> you study English?</p>
+    </div>
 
-  <h3>Uses:</h3>
-  <ul>
-    <li>Decisions made now</li>
-    <li>Promises</li>
-    <li>Predictions</li>
-  </ul>
-</section>
+    <h3>Common Uses:</h3>
+    <ul>
+      <li>Making spontaneous decisions (<em>"I'll answer the phone!"</em>)</li>
+      <li>Making promises or offers (<em>"I will help you."</em>)</li>
+      <li>Making predictions (<em>"It will rain tomorrow."</em>)</li>
+    </ul>
+  </section>
 
-<section id="tobe">
-  <h2>2. Verb To Be (Present Simple)</h2>
-  <p>The verb <b>to be</b> is used to describe states, identity, and situations.</p>
+  <section id="tobe">
+    <h2>2. Verb "To Be" (Present Simple)</h2>
+    <p>The verb <strong>to be</strong> describes states, identity, or situations in the present.</p>
 
-  <h3>Forms:</h3>
-  <div class="example">
-    <p><b>I am</b> a student.</p>
-    <p><b>You are</b> my friend.</p>
-    <p><b>He / She / It is</b> happy.</p>
-    <p><b>We are</b> ready.</p>
-    <p><b>They are</b> here.</p>
-  </div>
+    <h3>Positive Forms:</h3>
+    <div class="example">
+      <p><strong>I am</strong> a student.</p>
+      <p><strong>You are</strong> my friend.</p>
+      <p><strong>He / She / It is</strong> happy.</p>
+      <p><strong>We are</strong> ready.</p>
+      <p><strong>They are</strong> here.</p>
+    </div>
 
-  <h3>Negative:</h3>
-  <div class="example">
-    <p>I am <b>not</b> tired.</p>
-    <p>She is <b>not</b> at home.</p>
-  </div>
+    <h3>Negative Forms:</h3>
+    <div class="example">
+      <p>I am <strong>not</strong> tired. → <em>I'm not tired.</em></p>
+      <p>She is <strong>not</strong> at home. → <em>She isn't at home.</em></p>
+    </div>
 
-  <h3>Questions:</h3>
-  <div class="example">
-    <p><b>Am</b> I late?</p>
-    <p><b>Is</b> he your brother?</p>
-    <p><b>Are</b> they students?</p>
-  </div>
-</section>
-<section id="exercises">
-  <h2>3. Exercises (With Score)</h2>
+    <h3>Questions:</h3>
+    <div class="example">
+      <p><strong>Am</strong> I late?</p>
+      <p><strong>Is</strong> he your brother?</p>
+      <p><strong>Are</strong> they students?</p>
+    </div>
+  </section>
 
-  <div class="exercise">
-    <p><strong>Exercise 1:</strong> Complete with <i>will</i></p>
+  <section id="exercises">
+    <h2>3. Practice Exercises</h2>
 
-    <p>1. I <input type="text" id="q1" placeholder="..."> help you tomorrow.</p>
-    <p>2. She <input type="text" id="q2" placeholder="..."> call you later.</p>
-  </div>
+    <div class="exercise">
+      <p><strong>Exercise 1:</strong> Fill in the blank with <em>will</em>.</p>
+      <p>1. I <input type="text" id="q1" placeholder="will" autofocus> help you tomorrow.</p>
+      <p>2. She <input type="text" id="q2" placeholder="will"> call you later.</p>
+    </div>
 
-  <div class="exercise">
-    <p><strong>Exercise 2:</strong> Choose the correct form of <i>to be</i></p>
+    <div class="exercise">
+      <p><strong>Exercise 2:</strong> Choose the correct form of <em>to be</em>.</p>
+      <p>1. He
+        <select id="q3">
+          <option value="">-- select --</option>
+          <option value="am">am</option>
+          <option value="is">is</option>
+          <option value="are">are</option>
+        </select>
+        my best friend.
+      </p>
+      <p>2. They
+        <select id="q4">
+          <option value="">-- select --</option>
+          <option value="am">am</option>
+          <option value="is">is</option>
+          <option value="are">are</option>
+        </select>
+        happy today.
+      </p>
+    </div>
 
-    <p>1. He
-      <select id="q3">
-        <option value="">--choose--</option>
-        <option value="am">am</option>
-        <option value="is">is</option>
-        <option value="are">are</option>
-      </select>
-      my best friend.
-    </p>
+    <button onclick="checkScore()">Check Your Answers</button>
+    <div id="result"></div>
+  </section>
+</main>
 
-    <p>2. They
-      <select id="q4">
-        <option value="">--choose--</option>
-        <option value="am">am</option>
-        <option value="is">is</option>
-        <option value="are">are</option>
-      </select>
-      happy today.
-    </p>
-  </div>
+<footer>
+  <p>© 2025 English Grammar Learning | Free Educational Resource</p>
+</footer>
 
-  <button onclick="checkScore()">Check Score</button>
-
-  <div id="result" style="margin-top:15px;font-weight:bold;"></div>
-</section>
-
-<!-- ADD THIS AT THE VERY END -->
 <script>
   function checkScore() {
     let score = 0;
+    const total = 4;
 
-    let q1 = document.getElementById("q1").value.trim().toLowerCase();
-    let q2 = document.getElementById("q2").value.trim().toLowerCase();
-    let q3 = document.getElementById("q3").value;
-    let q4 = document.getElementById("q4").value;
+    // Get and normalize answers
+    const q1 = document.getElementById("q1").value.trim().toLowerCase();
+    const q2 = document.getElementById("q2").value.trim().toLowerCase();
+    const q3 = document.getElementById("q3").value;
+    const q4 = document.getElementById("q4").value;
 
+    // Check answers
     if (q1 === "will") score++;
     if (q2 === "will") score++;
     if (q3 === "is") score++;
     if (q4 === "are") score++;
 
-    document.getElementById("result").innerHTML =
-      "Your score: " + score + " / 4";
+    // Display result
+    const resultDiv = document.getElementById("result");
+    resultDiv.style.display = "block";
+    resultDiv.textContent = `Your score: ${score} out of ${total}`;
+    
+    // Optional: Add color feedback
+    resultDiv.style.backgroundColor = score === total ? "#dcfce7" : "#fee2e2";
+    resultDiv.style.color = score === total ? "#166534" : "#991b1b";
   }
 </script>
+  <!-- Your existing footer -->
+  <footer>
+    <p>© 2025 English Grammar Learning | Free Educational Resource</p>
+  </footer>
+
+  <!-- 👇 PASTE THE BACK-TO-TOP BUTTON CODE HERE 👇 -->
+  <button id="backToTop" ...> ... </button>
+  <script> ... </script>
 
 </body>
 </html>
-
+</body>
+</html>
