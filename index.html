@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Learn English Grammar</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f4f6f8;
+      color: #333;
+    }
+    header {
+      background: #2563eb;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    nav {
+      background: #1e40af;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 10px;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    section {
+      max-width: 900px;
+      margin: 30px auto;
+      background: white;
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #2563eb;
+    }
+    .example {
+      background: #eef2ff;
+      padding: 15px;
+      border-left: 4px solid #2563eb;
+      margin: 15px 0;
+    }
+    .exercise {
+      background: #fefce8;
+      padding: 15px;
+      border-left: 4px solid #ca8a04;
+      margin: 15px 0;
+    }
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: #e5e7eb;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>English Grammar for Students</h1>
+  <p>Future Simple & Verb To Be (Present Simple)</p>
+</header>
+
+<nav>
+  <a href="#future">Future Simple</a>
+  <a href="#tobe">Verb To Be</a>
+  <a href="#exercises">Exercises</a>
+</nav>
+
+<section id="future">
+  <h2>1. Future Simple (Will)</h2>
+  <p>The future simple is used to talk about actions that will happen in the future.</p>
+
+  <h3>Form:</h3>
+  <div class="example">
+    <p><strong>Affirmative:</strong> Subject + will + verb</p>
+    <p>I <b>will study</b> English.</p>
+
+    <p><strong>Negative:</strong> Subject + will not (won't) + verb</p>
+    <p>I <b>won't study</b> today.</p>
+
+    <p><strong>Question:</strong> Will + subject + verb?</p>
+    <p><b>Will</b> you study English?</p>
+  </div>
+
+  <h3>Uses:</h3>
+  <ul>
+    <li>Decisions made now</li>
+    <li>Promises</li>
+    <li>Predictions</li>
+  </ul>
+</section>
+
+<section id="tobe">
+  <h2>2. Verb To Be (Present Simple)</h2>
+  <p>The verb <b>to be</b> is used to describe states, identity, and situations.</p>
+
+  <h3>Forms:</h3>
+  <div class="example">
+    <p><b>I am</b> a student.</p>
+    <p><b>You are</b> my friend.</p>
+    <p><b>He / She / It is</b> happy.</p>
+    <p><b>We are</b> ready.</p>
+    <p><b>They are</b> here.</p>
+  </div>
+
+  <h3>Negative:</h3>
+  <div class="example">
+    <p>I am <b>not</b> tired.</p>
+    <p>She is <b>not</b> at home.</p>
+  </div>
+
+  <h3>Questions:</h3>
+  <div class="example">
+    <p><b>Am</b> I late?</p>
+    <p><b>Is</b> he your brother?</p>
+    <p><b>Are</b> they students?</p>
+  </div>
+</section>
+<section id="exercises">
+  <h2>3. Exercises (With Score)</h2>
+
+  <div class="exercise">
+    <p><strong>Exercise 1:</strong> Complete with <i>will</i></p>
+
+    <p>1. I <input type="text" id="q1" placeholder="..."> help you tomorrow.</p>
+    <p>2. She <input type="text" id="q2" placeholder="..."> call you later.</p>
+  </div>
+
+  <div class="exercise">
+    <p><strong>Exercise 2:</strong> Choose the correct form of <i>to be</i></p>
+
+    <p>1. He
+      <select id="q3">
+        <option value="">--choose--</option>
+        <option value="am">am</option>
+        <option value="is">is</option>
+        <option value="are">are</option>
+      </select>
+      my best friend.
+    </p>
+
+    <p>2. They
+      <select id="q4">
+        <option value="">--choose--</option>
+        <option value="am">am</option>
+        <option value="is">is</option>
+        <option value="are">are</option>
+      </select>
+      happy today.
+    </p>
+  </div>
+
+  <button onclick="checkScore()">Check Score</button>
+
+  <div id="result" style="margin-top:15px;font-weight:bold;"></div>
+</section>
+
+<!-- ADD THIS AT THE VERY END -->
+<script>
+  function checkScore() {
+    let score = 0;
+
+    let q1 = document.getElementById("q1").value.trim().toLowerCase();
+    let q2 = document.getElementById("q2").value.trim().toLowerCase();
+    let q3 = document.getElementById("q3").value;
+    let q4 = document.getElementById("q4").value;
+
+    if (q1 === "will") score++;
+    if (q2 === "will") score++;
+    if (q3 === "is") score++;
+    if (q4 === "are") score++;
+
+    document.getElementById("result").innerHTML =
+      "Your score: " + score + " / 4";
+  }
+</script>
+
+</body>
+</html>
